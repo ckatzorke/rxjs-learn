@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import {WikipediaSearchService} from './shared/wikipedia-search.service';
+import { WikipediaSearchService } from './shared/wikipedia-search.service';
+import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/debounceTime';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +11,11 @@ import 'rxjs/add/operator/map';
 })
 export class AppComponent {
   title = 'app works!';
+  term$ = new Subject<string>();
 
   results: Array<string>;
   constructor(private wikiSearch: WikipediaSearchService){
-      //
+      this.term$.debounceTime(400).subscribe(term => this.search(term));
   }
 
   search(term:string){
