@@ -17,11 +17,7 @@ export class AppComponent {
   results: Array<string>;
 
   constructor(private wikiSearch: WikipediaSearchService){
-      this.term$
-        .debounceTime(400)
-        .distinctUntilChanged()
-        .switchMap(term => this.wikiSearch.search(term))
-        .subscribe(results => this.results = results);
+      this.wikiSearch.search(this.term$).subscribe(results => this.results = results);
   }
 
 }
