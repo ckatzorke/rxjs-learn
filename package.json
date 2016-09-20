@@ -1,5 +1,6 @@
 {
-  "name": "cli-test",
+  "name": "rxjs-ng2-learn",
+  "description": "Code for https://egghead.io/courses/build-an-angular-2-instant-search-component",
   "version": "0.0.0",
   "license": "MIT",
   "angular-cli": {},
