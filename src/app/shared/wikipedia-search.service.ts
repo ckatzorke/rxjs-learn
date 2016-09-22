@@ -10,7 +10,7 @@ export class WikipediaSearchService {
 
   search(terms: Observable<string>, debounceMS = 300): Observable<Array<string>> {
       return terms
-        .debounceTime(400)
+        .debounceTime(debounceMS)
         .distinctUntilChanged()
         .switchMap(term => this.rawsearch(term));
   }
