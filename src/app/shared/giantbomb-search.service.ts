@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 
 @Injectable()
-export class WikipediaSearchService {
+export class GiantbombSearchService {
 
   constructor(private jsonp: Jsonp) { }
 
@@ -17,10 +17,14 @@ export class WikipediaSearchService {
 
   rawsearch(term: string): Observable<any>{
       let search = new URLSearchParams();
-      search.set('action', 'opensearch');
-      search.set('search', term);
-      search.set('format', 'json');
-      return this.jsonp.get('http://en.wikipedia.org/w/api.php?callback=JSONP_CALLBACK', {search}).map(response => response.json()[1]);
+      search.set('api_key', 'e316aff9ff7d945077dabd3a13ecebaad12bb70d');
+      search.set('query', term);
+      search.set('format', 'jsonp');
+      return this.jsonp.get('http://www.giantbomb.com/api/search/?json_callback=JSONP_CALLBACK',
+        {search}).map(response => {
+          console.log(response.json());
+          return response.json().results;
+      });
   }
 
 }

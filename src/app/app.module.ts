@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 
-import { WikipediaSearchService } from './shared/wikipedia-search.service';
+import { GiantbombSearchService } from './shared/giantbomb-search.service';
 
 import { AppComponent } from './app.component';
 
@@ -17,7 +17,7 @@ import { AppComponent } from './app.component';
     HttpModule,
     JsonpModule
   ],
-  providers: [ WikipediaSearchService ],
+  providers: [ GiantbombSearchService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
