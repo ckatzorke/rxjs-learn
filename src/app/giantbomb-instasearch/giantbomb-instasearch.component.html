@@ -1,0 +1,7 @@
+<div>
+    <input (input)="term$.next($event.target.value)"/>
+    <h3 [hidden]="!results">Results: {{results?.length}}</h3>
+    <ul>
+        <li *ngFor="let result of results">{{result.name}}</li>
+    </ul>
+</div>

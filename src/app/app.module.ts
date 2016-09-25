@@ -6,10 +6,12 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { GiantbombSearchService } from './shared/giantbomb-search.service';
 
 import { AppComponent } from './app.component';
+import { GiantbombInstasearchComponent } from './giantbomb-instasearch/giantbomb-instasearch.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GiantbombInstasearchComponent
   ],
   imports: [
     BrowserModule,
