@@ -2,6 +2,8 @@
     <input (input)="term$.next($event.target.value)"/>
     <h3 [hidden]="!results">Results: {{results?.length}}</h3>
     <ul>
-        <li *ngFor="let result of results">{{result.name}}</li>
+        <li *ngFor="let result of results">
+            <a href="{{result.site_detail_url}}" target="_blank">{{result.name}}</a>
+        </li>
     </ul>
 </div>
